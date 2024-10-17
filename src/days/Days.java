@@ -1,35 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package days;
 
 import java.util.Scanner;
 
-/**This class takes String input from user 
- * and calls method  to print the 
- * name of the day.
- * if the input is not given in String, 
- * program will accept and produce wrong results. 
- * change the code to use enums which avoids String input 
- * then print the week day names. 
+/**This program takes input from the user
+ * and prints the corresponding day of the week
+ * by using enums instead of Strings for input.
+ * This ensures valid day names are used.
  *
  * @author sivagamasrinivasan
- jn 22nd
+
  */
 public class Days {
 
-    /**
-     * @param args the command line arguments
-     */
+    
+    enum WeekDays {
+        ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN
+    }
+
     public static void main(String[] args) {
-         
-    Scanner in =new Scanner(System.in);
-    System.out.println("Enter the day number (one,two,three,four,five) in string");
-    String code = in.next();
-    Weekdays t= new Weekdays();
-    t.nameOfDay(code); 
-    }// TODO code application logic here
-    
-    
+
+        
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter a day number (ONE, TWO, THREE, etc.):");
+
+        
+        String userInput = scanner.next().toUpperCase();
+        WeekDays selectedDay = WeekDays.valueOf(userInput);
+
+        
+        Weekdays weekdaysInstance = new Weekdays();
+        weekdaysInstance.getDayName(selectedDay);
+    }
 }
